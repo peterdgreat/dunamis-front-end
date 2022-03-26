@@ -5,7 +5,7 @@ import React, { Fragment, useRef } from 'react';
 import ImageUpload from './ImageUpload';
 
 export default {
-  title: 'Component/Image Upload',
+  title: 'Component/Image Upload_two',
   component: ImageUpload,
 };
 

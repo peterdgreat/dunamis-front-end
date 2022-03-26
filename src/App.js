@@ -1,18 +1,18 @@
-import { React, useEffect } from 'react';
+import { React } from 'react';
 
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { getRockets } from './redux/Rockets/rockets';
+// import { getRockets } from './redux/Rockets/rockets';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import './App.css';
 
 function App() {
-  const dispatchRocket = useDispatch();
-  useEffect(() => {
-    dispatchRocket(getRockets());
-  }, []);
+  // const dispatchRocket = useDispatch();
+  // useEffect(() => {
+  //   dispatchRocket(getRockets());
+  // }, []);
 
   return (
     <div>

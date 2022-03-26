@@ -1,63 +1,73 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/button-has-type */
-/* eslint-disable import/prefer-default-export */
-import React from 'react';
-import ImageUploading from 'react-images-uploading';
+/* eslint-disable react/display-name */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 
-const ImageUpload = () => {
-  const [images, setImages] = React.useState([]);
-  const maxNumber = 69;
+import React, { forwardRef, useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+import {
+  ImageUploadContainer, ImageUploadDescription, ImageUploadLabel, ImageUploadPreview,
+} from './ImageUpload.style';
 
-  const onChange = (imageList, addUpdateIndex) => {
-    // data for submit
-    console.log(imageList, addUpdateIndex);
-    setImages(imageList);
+// import { colors } from '../../styles/colors';
+// import { Icon } from '../Icon/Icon';
+
+const ImageUpload = forwardRef(({ onClick, onChange }, ref) => {
+  const [uploadedImage, SetUploadedImage] = useState({
+    isUploaded: false,
+  });
+  const inputUploadElement = useRef(null);
+  const onFileChange = (evt) => {
+    if (evt.target.files.length > 0) {
+      const stateUpdateObject = {
+        currentFile: evt.target.files[0],
+        previewImage: URL.createObjectURL(evt.target.files[0]),
+        isUploaded: true,
+      };
+      SetUploadedImage(stateUpdateObject);
+      onChange(stateUpdateObject);
+    }
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
+
+  const handleOnDrop = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    onFileChange({
+      target: event.dataTransfer,
+    });
+  };
+
+  const onUploadButtonClick = () => {
+    inputUploadElement.current.click();
   };
 
   return (
-    <div className="App">
-      <ImageUploading
-        multiple
-        value={images}
-        onChange={onChange}
-        maxNumber={maxNumber}
-        dataURLKey="data_url"
-      >
-        {({
-          imageList,
-          onImageUpload,
-          onImageRemoveAll,
-          onImageUpdate,
-          onImageRemove,
-          isDragging,
-          dragProps,
-        }) => (
-          // write your building UI
-          <div className="upload__image-wrapper">
-            <button
-              style={isDragging ? { color: 'red' } : undefined}
-              onClick={onImageUpload}
-              {...dragProps}
-            >
-              Click or Drop here
-            </button>
-            &nbsp;
-            <button onClick={onImageRemoveAll}>Remove all images</button>
-            {imageList.map((image, index) => (
-              <div key={index} className="image-item">
-                <img src={image.data_url} alt="" width="100" />
-                <div className="image-item__btn-wrapper">
-                  <button onClick={() => onImageUpdate(index)}>Update</button>
-                  <button onClick={() => onImageRemove(index)}>Remove</button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </ImageUploading>
+    <div onClick={onUploadButtonClick} ref={ref}>
+      {
+        uploadedImage.isUploaded ? <ImageUploadPreview src={uploadedImage.previewImage} />
+          : (
+            <ImageUploadContainer onDragOver={handleDragOver} onDrop={handleOnDrop}>
+              <ImageUploadLabel>Upload files</ImageUploadLabel>
+              <ImageUploadDescription>Drag and drop files here</ImageUploadDescription>
+            </ImageUploadContainer>
+          )
+      }
+      <input ref={inputUploadElement} type="file" onChange={onFileChange} accept="image/*" hidden />
     </div>
   );
+});
+
+ImageUpload.defaultProps = {
+  onChange: () => {},
+};
+
+ImageUpload.propTypes = {
+  onChange: PropTypes.func,
 };
 
 export default ImageUpload;
