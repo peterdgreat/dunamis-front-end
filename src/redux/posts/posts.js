@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // const ROCKET_SUCCESS = 'space-travellers/rockets/ROCKET_SUCCESS';
 const MAKE_POST = 'dunamis/posts/MAKE_POST';
+const POST_SUCCESS = 'dunamis/posts/POST_SUCCESS';
 // const LEAVE_ROCKET = 'space-travellers/rockets/LEAVE_ROCKET';
 const BASE_URL = 'http://localhost:3000/api/v1/';
 const initialState = {
@@ -9,10 +10,10 @@ const initialState = {
 
   ],
 };
-// const setRockets = (payload) => ({
-//   type: ROCKET_SUCCESS,
-//   payload,
-// });
+export const postSuccess = (payload) => ({
+  type: POST_SUCCESS,
+  payload,
+});
 
 //  const makePost = (payload) => ({
 //   type: MAKE_POST,
