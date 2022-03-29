@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Dropdown from '../components/DropDown/DropDown';
 import ImageUpload from '../components/ImageUpload/ImageUpload';
-import { getPost } from '../redux/posts/posts';
+import { makePost } from '../redux/posts/posts';
 
 export default function Admin() {
   const [images, setImages] = useState('');
@@ -24,7 +24,7 @@ export default function Admin() {
     postData.append('image', images);
     postData.append('category', selectedWedding);
     postData.append('admin_id', 1);
-    const response = await getPost(postData);
+    const response = await makePost(postData);
     setResponse('Hello');
     console.log(response);
     console.log(Response);

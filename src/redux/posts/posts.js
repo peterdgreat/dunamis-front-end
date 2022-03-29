@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // const ROCKET_SUCCESS = 'space-travellers/rockets/ROCKET_SUCCESS';
 const MAKE_POST = 'dunamis/posts/MAKE_POST';
-const POST_SUCCESS = 'dunamis/posts/POST_SUCCESS';
+// const POST_SUCCESS = 'dunamis/posts/POST_SUCCESS';
 // const LEAVE_ROCKET = 'space-travellers/rockets/LEAVE_ROCKET';
 const BASE_URL = 'http://localhost:3000/api/v1/';
 const initialState = {
@@ -10,21 +10,25 @@ const initialState = {
 
   ],
 };
-export const postSuccess = (payload) => ({
-  type: POST_SUCCESS,
-  payload,
-});
-
-//  const makePost = (payload) => ({
-//   type: MAKE_POST,
+// export const postSuccess = (payload) => ({
+//   type: POST_SUCCESS,
 //   payload,
 // });
 
+const fetchPost = (payload) => ({
+  type: MAKE_POST,
+  payload,
+});
+
+export const getPost = () => async (dispatch) => {
+  const response = await axios.get(`${BASE_URL}posts`);
+  dispatch(fetchPost(response.data));
+};
 // export const leaveRocket = (id) => ({
 //   type: LEAVE_ROCKET,
 //   id,
 // });
-export const getPost = async (data) => {
+export const makePost = async (data) => {
   try {
     const response = await axios.post(`${BASE_URL}posts/create`, data);
     console.log(response);
