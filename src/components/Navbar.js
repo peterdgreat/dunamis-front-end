@@ -26,7 +26,7 @@ export default function NavBar() {
           <ul className="navbar-nav col-12  justify-content-end align-items-center">
             {links.map((link) => (
               <li key={link.id} className="nav-item bdr d-flex align-items-center px-3">
-                <NavLink className="nav-Link pt-1" activeClassName="active-link" to={link.path}>{link.text}</NavLink>
+                <NavLink className="nav-Link pt-1" to={link.path}>{link.text}</NavLink>
               </li>
             ))}
           </ul>

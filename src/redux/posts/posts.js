@@ -4,7 +4,7 @@ import axios from 'axios';
 const MAKE_POST = 'dunamis/posts/MAKE_POST';
 // const POST_SUCCESS = 'dunamis/posts/POST_SUCCESS';
 // const LEAVE_ROCKET = 'space-travellers/rockets/LEAVE_ROCKET';
-const BASE_URL = 'http://localhost:3000/api/v1/';
+const BASE_URL = 'http://localhost:3001/api/v1/';
 const initialState = {
   posts: [
 
@@ -22,6 +22,7 @@ const fetchPost = (payload) => ({
 
 export const getPost = () => async (dispatch) => {
   const response = await axios.get(`${BASE_URL}posts`);
+  console.log(response.data);
   dispatch(fetchPost(response.data));
 };
 // export const leaveRocket = (id) => ({
