@@ -1,9 +1,10 @@
 import React from 'react';
+import ImageGAllery from './ImageGallery/ImageGallery';
 
 export default function Home() {
   return (
-    <div>
-      WelCome To Home Page
-    </div>
+    <>
+      <ImageGAllery />
+    </>
   );
 }

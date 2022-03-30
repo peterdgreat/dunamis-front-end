@@ -6,8 +6,8 @@ import { getPost } from './redux/posts/posts';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
+import Admin from './pages/Admin';
 import './App.css';
-import ImageGAllery from './components/ImageGallery/ImageGallery';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,10 +19,10 @@ function App() {
     <div>
       <Router>
         <Navbar />
-        <ImageGAllery />
         <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/PDG_admin" element={<Admin />} />
             <Route path="/about" element={<About />} />
           </Routes>
 

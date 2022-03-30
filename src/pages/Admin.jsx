@@ -16,6 +16,14 @@ export default function Admin() {
       value: 'Portraits',
       label: 'Portraits',
     },
+    {
+      value: 'Fashion',
+      label: 'Fashion',
+    },
+    {
+      value: 'Beauty',
+      label: 'Beauty',
+    },
   ];
 
   const handleSubmit = async (e) => {
