@@ -5,7 +5,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import FormError from '../FormError/FormError';
-import Icon from '../Icon/Icon';
+// import Icon from '../Icon/Icon';
 import './dropdown.css';
 
 export default function DropDown({
@@ -97,10 +97,11 @@ export default function DropDown({
           } dropdown-btn`}
         >
           {selectedOption < 0 ? (
-            <span className="placeholder">{placeholder}</span>
+            <span>{placeholder}</span>
           ) : (
             <span>{selectedValueObject.label}</span>
           )}
+          {/*
           {isOptionsOpen ? (
             <Icon fill="#454545" name="TriangleUp" size="16" stroke="#454545" />
           ) : (
@@ -110,7 +111,7 @@ export default function DropDown({
               size="16"
               stroke="#454545"
             />
-          )}
+          )} */}
         </button>
       </div>
 
