@@ -1,10 +1,10 @@
+/* stylelint-disable declaration-block-no-duplicate-properties */
 div.wrapper {
   background: #fff;
   width: 100%;
   box-sizing: border-box;
   color: #454545;
   position: relative;
-  font-family: DM Sans;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -37,7 +37,6 @@ div.wrapper {
   width: 100%;
   background: #fff;
   cursor: pointer;
-  font-family: DM Sans;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -70,7 +69,6 @@ div.wrapper {
 
 .dropdown-list.options li {
   list-style: none;
-  padding-left: 27px;
   display: flex;
   align-items: center;
   display: flex;
