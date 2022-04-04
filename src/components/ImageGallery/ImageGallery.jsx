@@ -2,23 +2,15 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 // import { Row } from './ImageGallery.style';
-// import { getPost, wedding, portrait } from '../../redux/posts/posts';
 
 export default function ImageGallery() {
   const posts = useSelector((state) => state.posts.posts);
-  // const categories = ['portraits', 'beauty', 'weddings'];
-  // const toFilter = posts;
-  // const dispatch = useDispatch();
   const [search, setSearch] = useState('');
   const handleClick = (e) => {
-    console.log(e.target.value);
     setSearch(e.target.value);
   };
   const filtered = Object.entries(posts).filter((data) => {
     const [, value] = data;
-    // console.log(value);
-    // console.log(search);
-    // return 0;
     return value.category.toLowerCase().includes(search.toLowerCase());
   });
   console.log(filtered);

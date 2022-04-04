@@ -2,12 +2,7 @@
 /* eslint-disable no-case-declarations */
 import axios from 'axios';
 
-// const MAKE_POST = 'dunamis/posts/MAKE_POST';
-const SET_CATEGORIES_FILTER = 'SET_CATEGORIES_FILTER';
-const WEDDING = 'dunamis/posts/WEDDING';
-const PORTRAIT = 'dunamis/posts/PORTRAIT';
 const POST_SUCCESS = 'dunamis/posts/POST_SUCCESS';
-// const LEAVE_ROCKET = 'space-travellers/rockets/LEAVE_ROCKET';
 const BASE_URL = 'http://localhost:3001/api/v1/';
 const initialState = {
   posts: [
@@ -19,35 +14,14 @@ export const postSuccess = (payload) => ({
   payload,
 });
 
-// const fetchPost = (payload) => ({
-//   type: MAKE_POST,
-//   payload,
-// });
-
-export const setCategoriessFilter = (payload) => (
-  {
-    type: SET_CATEGORIES_FILTER,
-    payload,
-  }
-);
-
 export const getPost = () => async (dispatch) => {
   const response = await axios.get(`${BASE_URL}posts`);
   dispatch(postSuccess(response.data));
 };
-export const wedding = (payload) => ({
-  type: WEDDING,
-  payload,
-});
-export const portrait = (payload) => ({
-  type: PORTRAIT,
-  payload,
-});
 
 export const makePost = async (data) => {
   try {
     const response = await axios.post(`${BASE_URL}posts/create`, data);
-    console.log(response);
     return { status: response.status, post: response.data };
   } catch (error) {
     return { status: error.response.status, ...error.response.data };
