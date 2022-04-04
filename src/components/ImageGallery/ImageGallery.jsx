@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 // import { Row } from './ImageGallery.style';
+import ModalImage from 'react-modal-image';
 
 export default function ImageGallery() {
   const posts = useSelector((state) => state.posts.posts);
@@ -61,7 +62,11 @@ export default function ImageGallery() {
           const [key, value] = post;
           return (
             <div className="col-6 col-md-4 col-lg-3 mb-3" key={key}>
-              <img src={value?.image} alt={value?.category} className="w-100 shadow-1-strong mx-0 rounded" />
+              <ModalImage
+                small={value?.image}
+                large={value?.image}
+                alt={value?.category}
+              />
             </div>
           );
         })
