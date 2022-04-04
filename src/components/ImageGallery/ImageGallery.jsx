@@ -1,18 +1,27 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+/* eslint-disable react/no-array-index-key */
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 // import { Row } from './ImageGallery.style';
-import { getPost } from '../../redux/posts/posts';
+// import { getPost, wedding, portrait } from '../../redux/posts/posts';
 
 export default function ImageGallery() {
   const posts = useSelector((state) => state.posts.posts);
   // const categories = ['portraits', 'beauty', 'weddings'];
-  const filtered = posts.filter((post) => post.category.toLowerCase().includes('weddings'));
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(getPost);
-    console.log(filtered);
+  // const toFilter = posts;
+  // const dispatch = useDispatch();
+  const [search, setSearch] = useState('');
+  const handleClick = (e) => {
+    console.log(e.target.value);
+    setSearch(e.target.value);
   };
-  console.log(posts);
+  const filtered = Object.entries(posts).filter((data) => {
+    const [, value] = data;
+    // console.log(value);
+    // console.log(search);
+    // return 0;
+    return value.category.toLowerCase().includes(search.toLowerCase());
+  });
+  console.log(filtered);
   return (
     <div className="container-fluid">
       <div className="row">
@@ -22,6 +31,7 @@ export default function ImageGallery() {
             type="button"
             className="btn btn-danger"
             onClick={handleClick}
+            value=""
           >
             All
 
@@ -30,6 +40,7 @@ export default function ImageGallery() {
             type="button"
             className="btn btn-warning"
             onClick={handleClick}
+            value="wedding"
           >
             Weddings
 
@@ -38,18 +49,30 @@ export default function ImageGallery() {
             type="button"
             className="btn btn-success"
             onClick={handleClick}
+            value="portrait"
           >
             Portraits
 
           </button>
-          <button type="button" className="btn btn-warning">Beauty</button>
+          <button
+            type="button"
+            className="btn btn-warning"
+            onClick={handleClick}
+            value="beauty"
+          >
+            Beauty
+
+          </button>
         </div>
         {
-        posts.map((post) => (
-          <div className="col-6 col-md-4 col-lg-3 mb-3" key={post.id}>
-            <img src={post?.image} alt={post?.category} className="w-100 shadow-1-strong mx-0 rounded" />
-          </div>
-        ))
+        filtered.map((post) => {
+          const [key, value] = post;
+          return (
+            <div className="col-6 col-md-4 col-lg-3 mb-3" key={key}>
+              <img src={value?.image} alt={value?.category} className="w-100 shadow-1-strong mx-0 rounded" />
+            </div>
+          );
+        })
       }
         {/* </Row> */}
       </div>

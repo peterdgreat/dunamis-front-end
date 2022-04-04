@@ -1,3 +1,5 @@
+/* eslint-disable prefer-const */
+/* eslint-disable no-case-declarations */
 import axios from 'axios';
 
 // const MAKE_POST = 'dunamis/posts/MAKE_POST';
@@ -31,7 +33,6 @@ export const setCategoriessFilter = (payload) => (
 
 export const getPost = () => async (dispatch) => {
   const response = await axios.get(`${BASE_URL}posts`);
-  console.log(response.data);
   dispatch(postSuccess(response.data));
 };
 export const wedding = (payload) => ({
@@ -59,29 +60,6 @@ const postsReducer = (state = initialState, action) => {
         ...state,
         posts: action.payload,
       };
-    case WEDDING:
-      return {
-        ...state,
-        posts: action.payload.filter((post) => post.category.toLowerCase().includes('weddings')),
-      };
-    case PORTRAIT:
-      return {
-        ...state,
-        posts: action.payload.filter((post) => post.category.toLowerCase().includes('portraits')),
-      };
-    case SET_CATEGORIES_FILTER:
-      return {
-        ...state,
-        posts: action.filter,
-      };
-    // case LEAVE_ROCKET:
-    //   return {
-    //     ...state,
-    //     rockets: state.rockets.map((rocket) => {
-    //       if (rocket.id !== action.id) { return rocket; }
-    //       return { ...rocket, reserved: false };
-    //     }),
-    //   };
     default:
       return state;
   }
