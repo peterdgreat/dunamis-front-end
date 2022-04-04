@@ -52,6 +52,8 @@ export default function Admin() {
         <Dropdown
           optionsList={weddingOptions}
           placeholder="Select option"
+          label="Select Field"
+          value="key 5"
           onChange={(e) => {
             setSelectedWedding(e.value);
             console.log(e);
