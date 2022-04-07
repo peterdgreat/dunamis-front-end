@@ -1,27 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CustomInput, DisplayIcon, InputFieldContainer, InputLabel } from './InputField.style';
+import {
+  CustomInput, DisplayIcon, InputFieldContainer, InputLabel,
+} from './InputField.style';
 import { FormError } from '../FormError/FormError';
 
-export const InputField = ({ isError, errorMessage, label, ...rest }) => {
-  return (
-    <>
-      <InputLabel htmlFor={rest.name}>{label}</InputLabel>
-      <InputFieldContainer>
-        {
+export const InputField = ({
+  isError, errorMessage, label, ...rest
+}) => (
+  <>
+    <InputLabel htmlFor={rest.name}>{label}</InputLabel>
+    <InputFieldContainer>
+      {
           rest.prefixIcon && (<DisplayIcon name="Search" size="18" />)
         }
-        
-        <CustomInput {...rest} isError={isError} />
-        {
+
+      <CustomInput {...rest} isError={isError} />
+      {
           isError && (<FormError message={errorMessage} />)
         }
-      </InputFieldContainer>
+    </InputFieldContainer>
 
-    </>
-  )
-}
-
+  </>
+);
 
 InputField.propTypes = {
   /**
@@ -36,11 +37,11 @@ InputField.propTypes = {
   /**
    * Input label
    */
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
 };
 
 InputField.defaultProps = {
   isError: false,
   errorMessage: 'Error Message',
-  label: 'Input Label'
+  label: 'Input Label',
 };
