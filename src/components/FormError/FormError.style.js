@@ -1,9 +1,7 @@
+import styled from 'styled-components';
 import { colors, getTypographyFontStyle } from '../../styles/global.style';
 
-import styled from "styled-components";
-import { Icon } from '../Icon/Icon';
-
-
+import Icon from '../Icon/Icon';
 
 const FormFieldErrorMessage = styled.span`
     padding-top: 2px;
@@ -20,9 +18,8 @@ const FormFieldError = styled.div`
     margin-top: 12px;
 `;
 
-
 export {
-    FormFieldErrorMessage,
-    FormFieldErrorIcon,
-    FormFieldError
-}
+  FormFieldErrorMessage,
+  FormFieldErrorIcon,
+  FormFieldError,
+};

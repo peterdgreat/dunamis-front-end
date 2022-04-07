@@ -1,38 +1,36 @@
+import styled from 'styled-components';
 import { colors, getTypographyFontStyle, device } from '../../styles/global.style';
 
-import styled from "styled-components";
-import { Icon } from '../Icon/Icon';
-
+import Icon from '../Icon/Icon';
 
 const CustomInput = styled.input`
     background: white;
     border-radius: 4px;
-    border: 1px solid ${props => props.noBorder ? 'transparent' : '#454545'};
+    border: 1px solid ${(props) => (props.noBorder ? 'transparent' : '#454545')};
     padding: 12px 16px;
     width: 100%;
     box-sizing: border-box;
     margin-top: 8px;
     ${getTypographyFontStyle({ variant: 'body3', weight: 400 })};
     &&:focus {
-        border: 2px solid ${props => props.isError ? colors.danger : colors.primary};
+        border: 2px solid ${(props) => (props.isError ? colors.danger : colors.primary)};
         outline: none;
     }
     ${
-        props => props.isError && `border-color: ${colors.danger};`
-    }
+  (props) => props.isError && `border-color: ${colors.danger};`
+}
     ${
-        props => props.prefixIcon && `padding-left: 40px;`
-    }
+  (props) => props.prefixIcon && 'padding-left: 40px;'
+}
     @media ${device.md} {
         padding: 20px 16px;
         ${
-            props => props.prefixIcon && `padding-left: 50px;`
-        }
+  (props) => props.prefixIcon && 'padding-left: 50px;'
+}
         
     }
     
 `;
-
 
 const InputLabel = styled.label`
     ${getTypographyFontStyle({ variant: 'body3', weight: 500 })};
@@ -58,8 +56,8 @@ const DisplayIcon = styled(Icon)`
 `;
 
 export {
-    CustomInput,
-    InputFieldContainer,
-    InputLabel,
-    DisplayIcon
-}
+  CustomInput,
+  InputFieldContainer,
+  InputLabel,
+  DisplayIcon,
+};
