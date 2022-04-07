@@ -19,7 +19,11 @@ FormError.propTypes = {
   /**
    * Display error message when it is enabled
    */
-  message: PropTypes.string.isRequired,
+  message: PropTypes.string,
+};
+
+FormError.defaultProps = {
+  message: 'Error Message',
 };
 
 export default FormError;

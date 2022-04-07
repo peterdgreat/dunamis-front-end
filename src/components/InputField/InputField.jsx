@@ -1,11 +1,12 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
   CustomInput, DisplayIcon, InputFieldContainer, InputLabel,
 } from './InputField.style';
-import { FormError } from '../FormError/FormError';
+import FormError from '../FormError/FormError';
 
-export const InputField = ({
+const InputField = ({
   isError, errorMessage, label, ...rest
 }) => (
   <>
@@ -33,11 +34,11 @@ InputField.propTypes = {
   /**
    * Display error message when it is enabled
    */
-  errorMessage: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
   /**
    * Input label
    */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
 };
 
 InputField.defaultProps = {
@@ -45,3 +46,5 @@ InputField.defaultProps = {
   errorMessage: 'Error Message',
   label: 'Input Label',
 };
+
+export default InputField;
