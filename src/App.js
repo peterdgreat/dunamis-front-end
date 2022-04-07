@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Admin from './pages/Admin/Admin';
+import AdminLogin from './pages/Login/AdminLogin';
 import './App.css';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/PDG_admin" element={<Admin />} />
+            <Route path="/PDG_admin_login" element={<AdminLogin />} />
             <Route path="/about" element={<About />} />
           </Routes>
 
