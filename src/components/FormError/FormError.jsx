@@ -1,8 +1,6 @@
-/* eslint-disable react/default-props-match-prop-types */
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { colors } from '../../styles/colors';
+import { colors } from '../../styles/colors';
 import { FormFieldError, FormFieldErrorIcon, FormFieldErrorMessage } from './FormError.style';
 
 const FormError = ({ message }) => (
@@ -10,7 +8,7 @@ const FormError = ({ message }) => (
     <FormFieldErrorIcon
       name="Error"
       size="18"
-      fill="red"
+      fill={colors.danger}
       stroke="none"
     />
     <FormFieldErrorMessage>{message}</FormFieldErrorMessage>
@@ -22,10 +20,6 @@ FormError.propTypes = {
    * Display error message when it is enabled
    */
   message: PropTypes.string.isRequired,
-};
-
-FormError.defaultProps = {
-  message: 'Error Message',
 };
 
 export default FormError;
