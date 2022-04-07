@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Dropdown from '../components/DropDown/DropDown';
-import ImageUpload from '../components/ImageUpload/ImageUpload';
-import { makePost } from '../redux/posts/posts';
+import Dropdown from '../../components/DropDown/DropDown';
+import ImageUpload from '../../components/ImageUpload/ImageUpload';
+import { makePost } from '../../redux/posts/posts';
 
 export default function Admin() {
   const [images, setImages] = useState('');

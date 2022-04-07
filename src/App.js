@@ -6,7 +6,7 @@ import { getPost } from './redux/posts/posts';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
-import Admin from './pages/Admin';
+import Admin from './pages/Admin/Admin';
 import './App.css';
 
 function App() {
