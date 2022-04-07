@@ -15,7 +15,7 @@ export { ReactComponent as Star } from './Asset/Star.svg';
 export { ReactComponent as Twitter } from './Asset/Twitter.svg';
 export { ReactComponent as Linkedin } from './Asset/Linkedin.svg';
 export { ReactComponent as Tick } from './Asset/Tick.svg';
-export { ReactComponent as ArrowRight } from './Asset/ArrowRight.svg'; 
+export { ReactComponent as ArrowRight } from './Asset/ArrowRight.svg';
 export { ReactComponent as ArrowLeft } from './Asset/ArrowLeft.svg';
 export { ReactComponent as Upload } from './Asset/Upload.svg';
 export { ReactComponent as TriangleUp } from './Asset/TriangleUp.svg';
