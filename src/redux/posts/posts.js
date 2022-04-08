@@ -1,5 +1,3 @@
-/* eslint-disable prefer-const */
-/* eslint-disable no-case-declarations */
 import axios from 'axios';
 import BASE_URL from '../BaseUrl';
 
