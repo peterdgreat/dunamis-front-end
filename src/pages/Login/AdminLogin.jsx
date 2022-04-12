@@ -14,7 +14,10 @@ export default function AdminLogin() {
     postData.append('email', email);
     postData.append('password', password);
     const response = await login(postData);
-    setResponse('Hello');
+    setResponse(response.messages);
+    if (response.status === 200) {
+      window.location.href = '/PDG_admin/dashboard';
+    }
     console.log(response);
   };
 

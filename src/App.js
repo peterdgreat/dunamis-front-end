@@ -23,8 +23,8 @@ function App() {
         <div className="App">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/PDG_admin" element={<Admin />} />
-            <Route path="/PDG_admin_login" element={<AdminLogin />} />
+            <Route path="/PDG_admin/dashboard" element={<Admin />} />
+            <Route path="/PDG_admin/login" element={<AdminLogin />} />
             <Route path="/about" element={<About />} />
           </Routes>
 
