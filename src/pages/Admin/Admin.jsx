@@ -41,18 +41,18 @@ export default function Admin() {
     postData.append('category', selectedWedding);
     postData.append('admin_id', getAdminId());
     const response = await makePost(postData);
-    setResponse('Hello');
-    console.log(response);
-    console.log(Response);
+    if (response.status === 200) {
+      setResponse('Image Successfully Uploaded');
+    }
   };
   return (
     <div>
       <form className="d-flex flex-column h-100 justify-content-center align-items-center " onSubmit={handleSubmit}>
+        {Response}
         <ImageUpload
           images={images}
           onChange={
-              (e, addUpdateIndex) => {
-                console.log(e, addUpdateIndex);
+              (e) => {
                 setImages(e.currentFile);
               }
         }
@@ -64,7 +64,6 @@ export default function Admin() {
           value="key 5"
           onChange={(e) => {
             setSelectedWedding(e.value);
-            console.log(e);
           }}
         />
         <button className="btn btn-outline-success rounded-pill" type="submit">Add</button>
