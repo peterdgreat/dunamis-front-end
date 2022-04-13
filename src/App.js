@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { getPost } from './redux/posts/posts';
+// import { getAdmin } from './redux/admin/admin';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -15,6 +16,7 @@ function App() {
 
   useEffect(() => {
     dispatch(getPost());
+    // dispatch(getAdmin());
   }, []);
   return (
     <div>

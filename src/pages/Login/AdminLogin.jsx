@@ -1,13 +1,19 @@
+/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/anchor-is-valid */
+// import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import InputField from '../../components/InputField/InputField';
 import { login } from '../../redux/login/login';
+// import { getAdmin } from '../../redux/admin/admin';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [Response, setResponse] = useState('');
-
+  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // console.log(navigate);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const postData = new FormData();
@@ -16,9 +22,9 @@ export default function AdminLogin() {
     const response = await login(postData);
     setResponse(response.messages);
     if (response.status === 200) {
-      window.location.href = '/PDG_admin/dashboard';
+      navigate('/PDG_admin/dashboard', { state: { id: response.user.data.user.id } });
     }
-    console.log(response);
+    console.log(response.user.data.user.id);
   };
 
   return (
@@ -32,10 +38,10 @@ export default function AdminLogin() {
           placeholder="Enter email"
           label="Email"
           onChange={
-              (e) => {
-                setEmail(e.target.value);
-              }
-        }
+            (e) => {
+              setEmail(e.target.value);
+            }
+          }
         />
       </div>
       <div className="form-group">
@@ -45,10 +51,10 @@ export default function AdminLogin() {
           placeholder="Enter password"
           label="Passwsord"
           onChange={
-              (e) => {
-                setPassword(e.target.value);
-              }
-        }
+            (e) => {
+              setPassword(e.target.value);
+            }
+          }
         />
       </div>
       {/* <div className="form-group">
