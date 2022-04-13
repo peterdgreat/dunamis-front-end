@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import Dropdown from '../components/DropDown/DropDown';
-import ImageUpload from '../components/ImageUpload/ImageUpload';
-import { makePost } from '../redux/posts/posts';
+import { useLocation } from 'react-router-dom';
+import Dropdown from '../../components/DropDown/DropDown';
+import ImageUpload from '../../components/ImageUpload/ImageUpload';
+import { makePost } from '../../redux/posts/posts';
 
 export default function Admin() {
   const [images, setImages] = useState('');
+  const location = useLocation();
   const [selectedWedding, setSelectedWedding] = useState('');
   const [Response, setResponse] = useState('');
   const weddingOptions = [
@@ -26,25 +28,31 @@ export default function Admin() {
     },
   ];
 
+  const getAdminId = () => {
+    if (location.state) {
+      return location.state.id;
+    }
+    return '';
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const postData = new FormData();
     postData.append('image', images);
     postData.append('category', selectedWedding);
-    postData.append('admin_id', 1);
+    postData.append('admin_id', getAdminId());
     const response = await makePost(postData);
-    setResponse('Hello');
-    console.log(response);
-    console.log(Response);
+    if (response.status === 200) {
+      setResponse('Image Successfully Uploaded');
+    }
   };
   return (
     <div>
       <form className="d-flex flex-column h-100 justify-content-center align-items-center " onSubmit={handleSubmit}>
+        {Response}
         <ImageUpload
           images={images}
           onChange={
-              (e, addUpdateIndex) => {
-                console.log(e, addUpdateIndex);
+              (e) => {
                 setImages(e.currentFile);
               }
         }
@@ -56,10 +64,9 @@ export default function Admin() {
           value="key 5"
           onChange={(e) => {
             setSelectedWedding(e.value);
-            console.log(e);
           }}
         />
-        <button className="btn btn-outline-success rounded-pill" type="submit">Book Now</button>
+        <button className="btn btn-outline-success rounded-pill" type="submit">Add</button>
       </form>
     </div>
   );

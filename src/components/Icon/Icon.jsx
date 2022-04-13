@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react/display-name */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+
 import PropTypes from 'prop-types';
 import * as IconList from './IconList';
+import { colors } from '../../styles/colors';
 
-const Icon = () => ({
+const Icon = ({
   stroke, size, name, fill, className, ...rest
 }) => {
   const SpecifcIcon = IconList[name];
@@ -24,15 +25,15 @@ const Icon = () => ({
 
 Icon.defaultProps = {
   size: '36',
-  stroke: '#454545',
+  stroke: colors.primary,
   name: 'Oil',
-  fill: '#fff',
+  fill: colors.light,
 };
 
 Icon.propTypes = {
-  size: PropTypes.string.isRequired,
-  stroke: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  size: PropTypes.string,
+  stroke: PropTypes.string,
+  name: PropTypes.string,
   fill: PropTypes.string,
 };
 

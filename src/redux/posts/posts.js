@@ -1,9 +1,8 @@
-/* eslint-disable prefer-const */
-/* eslint-disable no-case-declarations */
 import axios from 'axios';
+import BASE_URL from '../BaseUrl';
 
 const POST_SUCCESS = 'dunamis/posts/POST_SUCCESS';
-const BASE_URL = 'http://localhost:3001/api/v1/';
+
 const initialState = {
   posts: [
 

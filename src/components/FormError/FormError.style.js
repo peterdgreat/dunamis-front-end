@@ -1,10 +1,12 @@
 import styled from 'styled-components';
-// import { colors, getTypographyFontStyle } from '../../styles/global.style';
+import { colors, getTypographyFontStyle } from '../../styles/global.style';
+
 import Icon from '../Icon/Icon';
 
 const FormFieldErrorMessage = styled.span`
     padding-top: 2px;
-    color: 'red';
+    color: ${colors.danger};
+    ${getTypographyFontStyle({ variant: 'body2', weight: 400 })};
 `;
 
 const FormFieldErrorIcon = styled(Icon)`

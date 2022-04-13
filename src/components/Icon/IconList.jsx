@@ -21,3 +21,4 @@ export { ReactComponent as Upload } from './Asset/Upload.svg';
 export { ReactComponent as TriangleUp } from './Asset/TriangleUp.svg';
 export { ReactComponent as TriangleDown } from './Asset/TriangleDown.svg';
 export { ReactComponent as Home } from './Asset/Home.svg';
+export { ReactComponent as Search } from './Asset/Search.svg';
