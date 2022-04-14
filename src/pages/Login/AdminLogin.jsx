@@ -24,7 +24,6 @@ export default function AdminLogin() {
     if (response.status === 200) {
       navigate('/PDG_admin/dashboard', { state: { id: response.user.data.user.id } });
     }
-    console.log(response.user.data.user.id);
   };
 
   return (

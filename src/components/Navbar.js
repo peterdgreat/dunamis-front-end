@@ -5,6 +5,16 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 
 export default function NavBar() {
   const location = useLocation();
+  let logout = {};
+  if (location.state) {
+    logout = {
+      id: 3,
+      path: '/logout',
+      text: 'Logout',
+    };
+    console.log(`NAVLOCATION: ${location.state.id}`);
+  }
+
   const links = [
     {
       id: 1,
@@ -16,6 +26,7 @@ export default function NavBar() {
       path: '/about',
       text: 'About',
     },
+    logout,
   ];
   return (
     <nav className="navbar navbar-expand-sm  bg">
