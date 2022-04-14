@@ -1,9 +1,10 @@
 /* eslint-disable react/button-has-type */
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 export default function NavBar() {
+  const location = useLocation();
   const links = [
     {
       id: 1,
