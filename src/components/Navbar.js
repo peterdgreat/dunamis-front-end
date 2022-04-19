@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/button-has-type */
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
@@ -5,16 +7,13 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 
 export default function NavBar() {
   const location = useLocation();
-  let logout = {};
   if (location.state) {
-    logout = {
-      id: 3,
-      path: '/logout',
-      text: 'Logout',
-    };
     console.log(`NAVLOCATION: ${location.state.id}`);
   }
 
+  const handleLogout = () => {
+    window.location.href = '/';
+  };
   const links = [
     {
       id: 1,
@@ -26,7 +25,6 @@ export default function NavBar() {
       path: '/about',
       text: 'About',
     },
-    logout,
   ];
   return (
     <nav className="navbar navbar-expand-sm  bg">
@@ -41,6 +39,15 @@ export default function NavBar() {
                 <NavLink className="nav-Link pt-1" to={link.path}>{link.text}</NavLink>
               </li>
             ))}
+            {
+              location.state && (
+              <li className="nav-item bdr d-flex align-items-center px-3">
+                <span role="button" className="nav-Link pt-1" onClick={handleLogout}>
+                  Logout
+                </span>
+              </li>
+              )
+            }
           </ul>
         </div>
       </div>
