@@ -1,18 +1,25 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/button-has-type */
 import React from 'react';
+
 import { NavLink, useLocation } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
+// import { logout } from '../redux/logout/logout';
 
 export default function NavBar() {
   const location = useLocation();
+  let user = {};
   if (location.state) {
-    console.log(`NAVLOCATION: ${location.state.id}`);
+    // console.log(`NAVLOCATION: ${location.state.user}`);
+    user = location.state.user;
   }
 
-  const handleLogout = () => {
+  console.log(`NAVUSER: ${user}`);
+  const handleLogout = async (e) => {
+    e.preventDefault();
     window.location.href = '/';
+    // const response = await logout(user);
+    // console.log(`LOGOUT: ${response}`);
   };
   const links = [
     {
