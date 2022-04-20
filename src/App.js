@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { getPost } from './redux/posts/posts';
-// import { getAdmin } from './redux/admin/admin';
+import NotFound from './pages/404/404';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -28,6 +28,7 @@ function App() {
             <Route exact path="/PDG_admin/dashboard" element={<Admin />} />
             <Route exact path="/PDG_admin/login" element={<AdminLogin />} />
             <Route exact path="/about" element={<About />} />
+            <Route path="*" element={NotFound} />
           </Routes>
 
         </div>
