@@ -24,10 +24,10 @@ function App() {
         <Navbar />
         <div className="App">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/PDG_admin/dashboard" element={<Admin />} />
-            <Route path="/PDG_admin/login" element={<AdminLogin />} />
-            <Route path="/about" element={<About />} />
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/PDG_admin/dashboard" element={<Admin />} />
+            <Route exact path="/PDG_admin/login" element={<AdminLogin />} />
+            <Route exact path="/about" element={<About />} />
           </Routes>
 
         </div>
