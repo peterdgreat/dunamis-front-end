@@ -2,24 +2,18 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 // import { logout } from '../redux/logout/logout';
+import { useSelector } from 'react-redux';
 
 export default function NavBar() {
-  const location = useLocation();
-  let user = {};
-  if (location.state) {
-    // console.log(`NAVLOCATION: ${location.state.user}`);
-    user = location.state.user;
-  }
+  const admin = useSelector((state) => state.admin);
 
-  console.log(`NAVUSER: ${user}`);
+  console.log(`ADMIN: ${admin?.admin?.id}`);
   const handleLogout = async (e) => {
     e.preventDefault();
     window.location.href = '/';
-    // const response = await logout(user);
-    // console.log(`LOGOUT: ${response}`);
   };
   const links = [
     {
@@ -47,7 +41,7 @@ export default function NavBar() {
               </li>
             ))}
             {
-              location.state && (
+              admin?.admin?.id && (
               <li className="nav-item bdr d-flex align-items-center px-3">
                 <span role="button" className="nav-Link pt-1" onClick={handleLogout}>
                   Logout

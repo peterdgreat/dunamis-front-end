@@ -25,7 +25,7 @@ function App() {
         <div className="App">
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route exact path="/PDG_admin/dashboard" element={<Admin />} />
+            <Route path="/PDG_admin/dashboard" element={<Admin />} />
             <Route exact path="/PDG_admin/login" element={<AdminLogin />} />
             <Route exact path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />

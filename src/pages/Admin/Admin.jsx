@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Dropdown from '../../components/DropDown/DropDown';
 import ImageUpload from '../../components/ImageUpload/ImageUpload';
+import NotFound from '../404/404';
 import { makePost } from '../../redux/posts/posts';
 
 export default function Admin() {
@@ -47,27 +48,30 @@ export default function Admin() {
   };
   return (
     <div>
-      <form className="d-flex flex-column h-100 justify-content-center align-items-center " onSubmit={handleSubmit}>
-        {Response}
-        <ImageUpload
-          images={images}
-          onChange={
+      {location.state ? (
+        <form className="d-flex flex-column h-100 justify-content-center align-items-center " onSubmit={handleSubmit}>
+          {Response}
+          <ImageUpload
+            images={images}
+            onChange={
               (e) => {
                 setImages(e.currentFile);
               }
         }
-        />
-        <Dropdown
-          optionsList={weddingOptions}
-          placeholder="Select option"
-          label="Select Field"
-          value="key 5"
-          onChange={(e) => {
-            setSelectedWedding(e.value);
-          }}
-        />
-        <button className="btn btn-outline-success rounded-pill" type="submit">Add</button>
-      </form>
+          />
+          <Dropdown
+            optionsList={weddingOptions}
+            placeholder="Select option"
+            label="Select Field"
+            value="key 5"
+            onChange={(e) => {
+              setSelectedWedding(e.value);
+            }}
+          />
+          <button className="btn btn-outline-success rounded-pill" type="submit">Add</button>
+        </form>
+      ) : <NotFound /> }
+
     </div>
   );
 }
