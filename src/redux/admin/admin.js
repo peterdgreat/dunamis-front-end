@@ -14,7 +14,6 @@ export const adminSuccess = (payload) => ({
 export const getAdmin = () => async (dispatch) => {
   const response = await axios.get(`${BASE_URL}admin`);
   dispatch(adminSuccess(response.data));
-  console.log(response.data);
 };
 
 const adminReducer = (state = initialState, action) => {

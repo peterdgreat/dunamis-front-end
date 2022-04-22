@@ -9,8 +9,6 @@ import { useSelector } from 'react-redux';
 
 export default function NavBar() {
   const admin = useSelector((state) => state.admin);
-
-  console.log(`ADMIN: ${admin?.admin?.id}`);
   const handleLogout = async (e) => {
     e.preventDefault();
     window.location.href = '/';

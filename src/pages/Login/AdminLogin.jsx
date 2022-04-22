@@ -21,7 +21,6 @@ export default function AdminLogin() {
     postData.append('password', password);
     const response = await login(postData);
     setResponse(response.messages);
-    console.log(response);
     if (response.status === 200) {
       dispatch(getAdmin());
       navigate('/PDG_admin/dashboard', { state: { user: response.user.data.user } });
