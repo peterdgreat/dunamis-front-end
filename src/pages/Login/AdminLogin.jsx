@@ -1,18 +1,18 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import InputField from '../../components/InputField/InputField';
 import { login } from '../../redux/login/login';
-// import { getAdmin } from '../../redux/admin/admin';
+import { getAdmin } from '../../redux/admin/admin';
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [Response, setResponse] = useState('');
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // console.log(navigate);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,9 +22,9 @@ export default function AdminLogin() {
     const response = await login(postData);
     setResponse(response.messages);
     if (response.status === 200) {
-      navigate('/PDG_admin/dashboard', { state: { id: response.user.data.user.id } });
+      dispatch(getAdmin());
+      navigate('/PDG_admin/dashboard', { state: { user: response.user.data.user } });
     }
-    console.log(response.user.data.user.id);
   };
 
   return (
