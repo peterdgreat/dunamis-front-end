@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Dropdown from '../../components/DropDown/DropDown';
 import ImageUpload from '../../components/ImageUpload/ImageUpload';
 import NotFound from '../404/404';
 import { makePost } from '../../redux/posts/posts';
 
 export default function Admin() {
+  const admin = useSelector((state) => state.admin);
   const [images, setImages] = useState('');
   const location = useLocation();
   const [selectedWedding, setSelectedWedding] = useState('');
@@ -48,7 +50,7 @@ export default function Admin() {
   };
   return (
     <div>
-      {location.state ? (
+      {admin?.admin?.id ? (
         <form className="d-flex flex-column h-100 justify-content-center align-items-center " onSubmit={handleSubmit}>
           {Response}
           <ImageUpload

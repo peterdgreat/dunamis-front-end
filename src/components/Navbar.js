@@ -42,11 +42,18 @@ export default function NavBar() {
             ))}
             {
               admin?.admin?.id && (
-              <li className="nav-item bdr d-flex align-items-center px-3">
-                <span role="button" className="nav-Link pt-1" onClick={handleLogout}>
-                  Logout
-                </span>
-              </li>
+                <ul>
+                  <li className="nav-item bdr d-flex align-items-center px-3">
+                    <span role="button" className="nav-Link pt-1" onClick={handleLogout}>
+                      Logout
+                    </span>
+                  </li>
+                  <li className="nav-item bdr d-flex align-items-center px-3">
+                    <NavLink className="nav-Link pt-1" to="/PDG_admin/dashboard">
+                      Dashboard
+                    </NavLink>
+                  </li>
+                </ul>
               )
             }
           </ul>
