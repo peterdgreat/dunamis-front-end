@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { getPost } from './redux/posts/posts';
-import NotFound from './pages/404/404';
+import NotFound from './pages/404/NotFound';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Dropdown from '../../components/DropDown/DropDown';
 import ImageUpload from '../../components/ImageUpload/ImageUpload';
-import NotFound from '../404/404';
+import NotFound from '../404/NotFound';
 import { makePost } from '../../redux/posts/posts';
 
 export default function Admin() {
