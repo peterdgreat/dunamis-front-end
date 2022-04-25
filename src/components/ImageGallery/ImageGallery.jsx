@@ -1,9 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-// import { Row } from './ImageGallery.style';
 import ModalImage from 'react-modal-image';
-
+import { deletePost } from '../../redux/posts/posts';
+// import { Row } from './ImageGallery.style';
 export default function ImageGallery() {
   const posts = useSelector((state) => state.posts.posts);
   const [search, setSearch] = useState('');
@@ -14,6 +14,12 @@ export default function ImageGallery() {
     const [, value] = data;
     return value.category.toLowerCase().includes(search.toLowerCase());
   });
+  const handleDelete = async (id) => {
+    const response = await deletePost(id);
+    if (response.status === 200) {
+      alert('Image Deleted');
+    }
+  };
   console.log(filtered);
   return (
     <div className="container-fluid">
@@ -67,6 +73,13 @@ export default function ImageGallery() {
                 large={value?.image}
                 alt={value?.category}
               />
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={() => handleDelete(value?.id)}
+              >
+                Delete
+              </button>
             </div>
           );
         })
