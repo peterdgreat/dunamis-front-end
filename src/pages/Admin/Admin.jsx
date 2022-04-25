@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Dropdown from '../../components/DropDown/DropDown';
 import ImageUpload from '../../components/ImageUpload/ImageUpload';
@@ -8,8 +7,8 @@ import { makePost } from '../../redux/posts/posts';
 
 export default function Admin() {
   const admin = useSelector((state) => state.admin);
+  console.log(admin);
   const [images, setImages] = useState('');
-  const location = useLocation();
   const [selectedWedding, setSelectedWedding] = useState('');
   const [Response, setResponse] = useState('');
   const weddingOptions = [
@@ -32,8 +31,8 @@ export default function Admin() {
   ];
 
   const getAdminId = () => {
-    if (location.state) {
-      return location.state.id;
+    if (admin) {
+      return admin?.admin?.id;
     }
     return '';
   };
@@ -44,8 +43,10 @@ export default function Admin() {
     postData.append('category', selectedWedding);
     postData.append('admin_id', getAdminId());
     const response = await makePost(postData);
+    console.log(response.status);
     if (response.status === 200) {
       setResponse('Image Successfully Uploaded');
+      window.location.href = '/';
     }
   };
   return (
