@@ -6,6 +6,7 @@ import { deletePost } from '../../redux/posts/posts';
 // import { Row } from './ImageGallery.style';
 export default function ImageGallery() {
   const posts = useSelector((state) => state.posts.posts);
+  const admin = useSelector((state) => state.admin);
   const [search, setSearch] = useState('');
   const handleClick = (e) => {
     setSearch(e.target.value);
@@ -73,6 +74,7 @@ export default function ImageGallery() {
                 large={value?.image}
                 alt={value?.category}
               />
+              {admin?.admin?.id && (
               <button
                 type="button"
                 className="btn btn-danger"
@@ -80,6 +82,8 @@ export default function ImageGallery() {
               >
                 Delete
               </button>
+              )}
+
             </div>
           );
         })
