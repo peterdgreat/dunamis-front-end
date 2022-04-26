@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ModalImage from 'react-modal-image';
 import { deletePost } from '../../redux/posts/posts';
-// import { Row } from './ImageGallery.style';
+import { Row, Col } from './ImageGallery.style';
+
 export default function ImageGallery() {
   const posts = useSelector((state) => state.posts.posts);
   const admin = useSelector((state) => state.admin);
@@ -64,11 +65,12 @@ export default function ImageGallery() {
 
           </button>
         </div>
-        {
+        <Row>
+          {
         filtered.map((post) => {
-          const [key, value] = post;
+          const [, value] = post;
           return (
-            <div className="col-6 col-md-4 col-lg-3 mb-3" key={key}>
+            <Col key={value.id}>
               <ModalImage
                 small={value?.image}
                 large={value?.image}
@@ -84,10 +86,11 @@ export default function ImageGallery() {
               </button>
               )}
 
-            </div>
+            </Col>
           );
         })
       }
+        </Row>
         {/* </Row> */}
       </div>
     </div>
