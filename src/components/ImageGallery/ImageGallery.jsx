@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ModalImage from 'react-modal-image';
+import Masonry from 'react-responsive-masonry';
 import { deletePost } from '../../redux/posts/posts';
-import { Row, Col } from './ImageGallery.style';
 
 export default function ImageGallery() {
   const posts = useSelector((state) => state.posts.posts);
@@ -65,13 +65,14 @@ export default function ImageGallery() {
 
           </button>
         </div>
-        <Row>
+        <Masonry columnsCount={3} gutter={4}>
           {
         filtered.map((post) => {
           const [, value] = post;
           return (
-            <Col key={value.id}>
+            < >
               <ModalImage
+                key={value.id}
                 small={value?.image}
                 large={value?.image}
                 alt={value?.category}
@@ -86,11 +87,11 @@ export default function ImageGallery() {
               </button>
               )}
 
-            </Col>
+            </>
           );
         })
       }
-        </Row>
+        </Masonry>
         {/* </Row> */}
       </div>
     </div>
