@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ModalImage from 'react-modal-image';
@@ -22,11 +21,9 @@ export default function ImageGallery() {
       alert('Image Deleted');
     }
   };
-  console.log(filtered);
   return (
     <div className="container-fluid">
       <div className="row">
-        {/* <Row> */}
         <div className="btn-group mb-4" role="group" aria-label="Basic mixed styles example">
           <button
             type="button"
@@ -92,7 +89,6 @@ export default function ImageGallery() {
         })
       }
         </Masonry>
-        {/* </Row> */}
       </div>
     </div>
 
