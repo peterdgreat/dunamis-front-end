@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import ModalImage from 'react-modal-image';
 import Masonry from 'react-responsive-masonry';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 import { deletePost } from '../../redux/posts/posts';
 
 export default function ImageGallery() {
@@ -67,9 +68,8 @@ export default function ImageGallery() {
         filtered.map((post) => {
           const [, value] = post;
           return (
-            < >
+            <AnimationOnScroll animateIn="animate__bounceIn" key={value?.id}>
               <ModalImage
-                key={value.id}
                 small={value?.image}
                 large={value?.image}
                 alt={value?.category}
@@ -84,7 +84,7 @@ export default function ImageGallery() {
               </button>
               )}
 
-            </>
+            </AnimationOnScroll>
           );
         })
       }
