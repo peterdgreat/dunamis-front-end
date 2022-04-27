@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { getPost } from './redux/posts/posts';
 import NotFound from './pages/404/NotFound';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Admin from './pages/Admin/Admin';
