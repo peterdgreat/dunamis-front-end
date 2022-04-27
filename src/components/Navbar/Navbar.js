@@ -3,7 +3,6 @@
 import React from 'react';
 
 import { NavLink } from 'react-router-dom';
-import { GiHamburgerMenu } from 'react-icons/gi';
 // import { logout } from '../redux/logout/logout';
 import { useSelector } from 'react-redux';
 
@@ -13,32 +12,15 @@ export default function NavBar() {
     e.preventDefault();
     window.location.href = '/';
   };
-  const links = [
-    {
-      id: 1,
-      path: '/',
-      text: 'Home',
-    },
-    {
-      id: 2,
-      path: '/about',
-      text: 'About',
-    },
-  ];
   return (
-    <nav className="navbar navbar-expand-sm  bg">
-      <div className="container">
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <GiHamburgerMenu />
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav col-12  justify-content-end align-items-center">
-            {links.map((link) => (
-              <li key={link.id} className="nav-item bdr d-flex align-items-center px-3">
-                <NavLink className="nav-Link pt-1" to={link.path}>{link.text}</NavLink>
-              </li>
-            ))}
-            {
+    <nav className="navbar">
+      <div className="container-fluid">
+        <NavLink className="navbar-brand" to="/">
+          <img src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" className="d-inline-block align-text-top" />
+          Dunamis Photography
+        </NavLink>
+      </div>
+      {
               admin?.admin?.id && (
                 <ul>
                   <li className="nav-item bdr d-flex align-items-center px-3">
@@ -54,9 +36,6 @@ export default function NavBar() {
                 </ul>
               )
             }
-          </ul>
-        </div>
-      </div>
     </nav>
   );
 }
