@@ -7,6 +7,7 @@ import NotFound from './pages/404/NotFound';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home';
 import About from './components/About';
+import Banner from './components/Banner/Banner';
 import Admin from './pages/Admin/Admin';
 import AdminLogin from './pages/Login/AdminLogin';
 import './App.css';
@@ -22,6 +23,7 @@ function App() {
     <div>
       <Router>
         <Navbar />
+        <Banner />
         <div className="App">
           <Routes>
             <Route exact path="/" element={<Home />} />
