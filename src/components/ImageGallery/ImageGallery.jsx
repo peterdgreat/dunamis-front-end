@@ -68,7 +68,7 @@ export default function ImageGallery() {
         filtered.map((post) => {
           const [, value] = post;
           return (
-            <AnimationOnScroll animateOnce animateIn="animate__bounceIn" key={value?.id}>
+            <AnimationOnScroll initiallyVisible animateIn="animate__bounceIn" key={value?.id}>
               <ModalImage
                 small={value?.image}
                 large={value?.image}
