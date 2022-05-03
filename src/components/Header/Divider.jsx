@@ -1,13 +1,17 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable react/default-props-match-prop-types */
+/* eslint-disable react/require-default-props */
+import React from 'react';
 
-import PropTypes from "prop-types";
-import { colors } from "../../styles/colors";
+import PropTypes from 'prop-types';
+import { colors } from '../../styles/colors';
 
 export default function Divider({
   primary,
   width,
   height,
-  margin_top,
+  marginTop,
   opacity,
   transform,
 }) {
@@ -16,15 +20,15 @@ export default function Divider({
   return (
     <div
       style={{
-        height: height,
+        height,
         backgroundColor: color,
-        width: width,
-        marginTop: margin_top,
-        opacity: opacity,
-        transform: transform,
-        transition: "all .5s ease-in-out",
+        width,
+        marginTop,
+        opacity,
+        transform,
+        transition: 'all .5s ease-in-out',
       }}
-    ></div>
+    />
   );
 }
 Divider.propTypes = {
@@ -36,7 +40,7 @@ Divider.propTypes = {
 
 Divider.defaultProps = {
   primary: true,
-  width: "276px",
-  height: "1px",
-  marginTop: "0px",
+  width: '276px',
+  height: '1px',
+  marginTop: '0px',
 };
