@@ -24,6 +24,7 @@ export default function ImageGallery() {
   };
   return (
     <div className="container-fluid">
+
       <div className="row">
         <div className="btn-group mb-4" role="group" aria-label="Basic mixed styles example">
           <button
@@ -68,7 +69,7 @@ export default function ImageGallery() {
         filtered.map((post) => {
           const [, value] = post;
           return (
-            <AnimationOnScroll animateOnce animateIn="animate__bounceIn" key={value?.id}>
+            <AnimationOnScroll initiallyVisible animateIn="animate__bounceIn" key={value?.id}>
               <ModalImage
                 small={value?.image}
                 large={value?.image}

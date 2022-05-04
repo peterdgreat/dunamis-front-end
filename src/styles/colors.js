@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 export const colors = {
-  primary: '#27ae60',
-  primaryDark: '#219b54',
+  primary: '#fff',
+  primaryDark: '#C4C4C4',
   secondary: '#6c757d',
   success: '#198754',
   info: '#0dcaf0',
