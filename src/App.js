@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { getPost } from './redux/posts/posts';
 import NotFound from './pages/404/NotFound';
 import Navbar from './components/Navbar/Navbar';
-import Home from './components/Home';
+import Home from './pages/Home/Home';
 import About from './components/About';
 import Banner from './components/Banner/Banner';
 import Admin from './pages/Admin/Admin';
