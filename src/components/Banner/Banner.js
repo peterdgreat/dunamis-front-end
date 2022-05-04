@@ -2,8 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import './Banner.css';
 import {
-  Container, BannerBody, BannerContainer, BannerImage,
+  Container, BannerBody, BannerContainer,
+  BannerDescription,
 } from './Banner.style';
+import Heading from '../Header/Heading';
 
 export default function Banner() {
   const posts = useSelector((state) => state.posts.posts);
@@ -11,20 +13,20 @@ export default function Banner() {
   const post = weddings[Math.floor(Math.random() * weddings.length)];
   return (
     <Container>
-      <BannerContainer>
-        <BannerImage
+      <BannerContainer bg={post?.image}>
+        {/* <BannerImage
           src={post?.image}
-        />
+        /> */}
         <BannerBody>
-          <h1>
+          <Heading>
             Looking for something different?
-          </h1>
-          <p>
+          </Heading>
+          <BannerDescription>
             Are you a couple looking for more than just beautiful wedding photography?
             You want something artistic, emotive, creative and also timeless?
             Let us make your desires come true.
             We have a wide range of photography services for you.
-          </p>
+          </BannerDescription>
           <button type="button" className="btn btn-primary">
             Book Now
           </button>

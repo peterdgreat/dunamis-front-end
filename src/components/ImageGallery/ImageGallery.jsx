@@ -4,7 +4,6 @@ import ModalImage from 'react-modal-image';
 import Masonry from 'react-responsive-masonry';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import { deletePost } from '../../redux/posts/posts';
-import Position from './Gallery.style';
 
 export default function ImageGallery() {
   const posts = useSelector((state) => state.posts.posts);
@@ -25,48 +24,48 @@ export default function ImageGallery() {
   };
   return (
     <div className="container-fluid">
-      <Position>
-        <div className="row">
-          <div className="btn-group mb-4" role="group" aria-label="Basic mixed styles example">
-            <button
-              type="button"
-              className="btn btn-danger"
-              onClick={handleClick}
-              value=""
-            >
-              All
 
-            </button>
-            <button
-              type="button"
-              className="btn btn-warning"
-              onClick={handleClick}
-              value="wedding"
-            >
-              Weddings
+      <div className="row">
+        <div className="btn-group mb-4" role="group" aria-label="Basic mixed styles example">
+          <button
+            type="button"
+            className="btn btn-danger"
+            onClick={handleClick}
+            value=""
+          >
+            All
 
-            </button>
-            <button
-              type="button"
-              className="btn btn-success"
-              onClick={handleClick}
-              value="portrait"
-            >
-              Portraits
+          </button>
+          <button
+            type="button"
+            className="btn btn-warning"
+            onClick={handleClick}
+            value="wedding"
+          >
+            Weddings
 
-            </button>
-            <button
-              type="button"
-              className="btn btn-warning"
-              onClick={handleClick}
-              value="beauty"
-            >
-              Beauty
+          </button>
+          <button
+            type="button"
+            className="btn btn-success"
+            onClick={handleClick}
+            value="portrait"
+          >
+            Portraits
 
-            </button>
-          </div>
-          <Masonry columnsCount={3} gutter={4}>
-            {
+          </button>
+          <button
+            type="button"
+            className="btn btn-warning"
+            onClick={handleClick}
+            value="beauty"
+          >
+            Beauty
+
+          </button>
+        </div>
+        <Masonry columnsCount={3} gutter={4}>
+          {
         filtered.map((post) => {
           const [, value] = post;
           return (
@@ -90,9 +89,8 @@ export default function ImageGallery() {
           );
         })
       }
-          </Masonry>
-        </div>
-      </Position>
+        </Masonry>
+      </div>
     </div>
 
   );
