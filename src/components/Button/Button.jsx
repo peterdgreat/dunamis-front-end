@@ -1,31 +1,27 @@
+/* eslint-disable react/require-default-props */
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonIcon, PrimaryButton } from './Button.style';
+import PrimaryButton from './Button.style';
 
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, size, format, label, startIcon, endIcon, icon, disabled, onClick, ...props }) => {
-  return (
-    <PrimaryButton
-      primary={primary}
-      format={format}
-      size={size} 
-      onClick={onClick}
-      disabled={disabled}
-      {...props}
-    >
-      {
-        startIcon && <ButtonIcon start={true} name={startIcon} primary={primary} format={format} size={"16"}/>
-      }
-      {label}
-      {
-        endIcon && <ButtonIcon end={true} name={endIcon} primary={primary} format={format} size={"16"}/>
-      }
-      
-    </PrimaryButton>
-  );
-};
+const Button = ({
+  primary, size, format, label, disabled, onClick, ...props
+}) => (
+  <PrimaryButton
+    primary={primary}
+    format={format}
+    size={size}
+    onClick={onClick}
+    disabled={disabled}
+    {...props}
+  >
+    {label}
+
+  </PrimaryButton>
+);
 
 // 9965223463
 
@@ -51,8 +47,6 @@ Button.propTypes = {
    * Optional click handler
    */
   onClick: PropTypes.func,
-  startIcon: PropTypes.string,
-  endIcon: PropTypes.string,
   disabled: PropTypes.bool,
 };
 
@@ -62,3 +56,5 @@ Button.defaultProps = {
   format: 'contained',
   onClick: undefined,
 };
+
+export default Button;
