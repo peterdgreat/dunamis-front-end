@@ -4,8 +4,10 @@ import './Banner.css';
 import {
   Container, BannerBody, BannerContainer,
   BannerDescription,
+  Link,
 } from './Banner.style';
 import Heading from '../Header/Heading';
+import Button from '../Button/Button';
 
 export default function Banner() {
   const posts = useSelector((state) => state.posts.posts);
@@ -27,9 +29,7 @@ export default function Banner() {
             Let us make your desires come true.
             We have a wide range of photography services for you.
           </BannerDescription>
-          <button type="button" className="btn btn-primary">
-            Book Now
-          </button>
+          <Button label={<Link href="https://wa.me/+2348166085833" target="_blank">Talk to us</Link>} format="outlined" />
         </BannerBody>
       </BannerContainer>
     </Container>

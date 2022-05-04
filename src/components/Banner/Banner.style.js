@@ -23,7 +23,7 @@ const BannerContainer = styled.header`
 `;
 
 const BannerBody = styled.div`
-  padding-top: 150px;
+  padding-top: 250px;
   padding-left: 8%;
   padding-right: 8%;
   width: 80%;
@@ -35,14 +35,22 @@ const Container = styled.div`
 `;
 const BannerDescription = styled.p`
   ${getTypographyFontStyle({ variant: 'body1', weight: 400 })}
-  color: ${colors.light};
+  color: ${colors.primary};
   margin: 16px 0;
   @media ${device.md} {
     margin: 22px 0 32px;
     max-width: 600px;
   } 
 `;
+const Link = styled.a`
+   text-decoration:none;
+   color: ${colors.primary};
+   &&:hover {
+      color: ${colors.darkGrey};
+   }
+   `;
 
 export {
+  Link,
   BannerDescription, Container, BannerImage, BannerContainer, BannerBody,
 };

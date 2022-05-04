@@ -59,7 +59,7 @@ const PrimaryButton = styled.button`
         ${(props) => !props.disabled && css`
             background-color: ${(props) => (props.primary ? colors.primaryDark : colors.secondary)};
         `}
-        color: ${colors.light};
+        color: ${colors.darkGrey};
     }
 `;
 
