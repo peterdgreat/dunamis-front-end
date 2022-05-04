@@ -9,8 +9,6 @@ const BannerImage = styled.img`
   background-color:linear-gradient(90deg, #fff -26.67%, rgba(0, 0, 0, 0) 100%);
 `;
 const BannerContainer = styled.header`
-  // position: relative;
-  color: red;
   background: linear-gradient(
      rgba(0,0,0, 0.8), 
     rgba(50, 39, 59, 0.7)
@@ -31,7 +29,6 @@ const BannerBody = styled.div`
 `;
 const Container = styled.div`
   height: 100%;
-  // overflow: hidden;
 `;
 const BannerDescription = styled.p`
   ${getTypographyFontStyle({ variant: 'body1', weight: 400 })}
