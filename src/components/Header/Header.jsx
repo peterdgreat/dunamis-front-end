@@ -8,7 +8,7 @@ import Heading from './Heading';
 import { useDeviceMode } from '../../utils/DeviceMode';
 import './Header.css';
 
-export default function Header({ title, ...rest }) {
+export default function Header({ title, color, ...rest }) {
   const { desktop } = useDeviceMode();
   const height = desktop ? '1px' : '0.625px';
   const widthOne = desktop ? '276px' : '172.5px';
@@ -18,16 +18,16 @@ export default function Header({ title, ...rest }) {
 
   return (
     <div className="header" {...rest}>
-      <Heading>{title}</Heading>
-      <Divider primary width={widthOne} height={height} />
+      <Heading color={color}>{title}</Heading>
+      <Divider primary={false} width={widthOne} height={height} />
       <Divider
-        primary
+        primary={false}
         width={widthTwo}
         height={height}
         marginTop={marginTop}
       />
       <Divider
-        primary
+        primary={false}
         width={widthThree}
         height={height}
         marginTop={marginTop}
@@ -37,6 +37,7 @@ export default function Header({ title, ...rest }) {
 }
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+  color: PropTypes.string,
 };
 Header.defaultProps = {
   title: 'Add Title',
