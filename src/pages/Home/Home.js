@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-// import ImageGAllery from '../../components/ImageGallery/ImageGallery';
 import { Container, Description } from './Home.style';
 import Header from '../../components/Header/Header';
 import { colors } from '../../styles/global.style';
@@ -10,7 +9,6 @@ export default function Home() {
   const navigate = useNavigate();
   return (
     <Container>
-      {/* <ImageGAllery /> */}
       <Header color={colors.dark} title="Let us tell your story" />
       <Description>
         We are story tellers who
@@ -22,6 +20,10 @@ export default function Home() {
         It&#39;s important to us that we get
         to capture the uniqueness of your day. As a result we tailor our packages
         to meet your specific requirements.
+      </Description>
+      <Description>
+        Let us take you on a journey
+        of beauty, elegance, romance, fun and timeless moments through our portfolio.
       </Description>
       <Button
         format="outlined"

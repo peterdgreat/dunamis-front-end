@@ -12,11 +12,14 @@ export default function ImageGallery() {
   const [search, setSearch] = useState('');
   const handleClick = (e) => {
     setSearch(e.target.value);
-    console.log('Hello');
   };
   const filtered = Object.entries(posts).filter((data) => {
     const [, value] = data;
-    return value.category.toLowerCase().includes(search.toLowerCase());
+    const searched = value.category.toLowerCase().includes(search.toLowerCase());
+    if (searched) {
+      return true;
+    }
+    return false;
   });
   const handleDelete = async (id) => {
     const response = await deletePost(id);
@@ -41,7 +44,7 @@ export default function ImageGallery() {
             onClick={handleClick}
             label="Weddings"
             format="outlined"
-            value="weddings"
+            value="wedding"
           />
 
           <Button
@@ -49,7 +52,7 @@ export default function ImageGallery() {
             onClick={handleClick}
             label="Portraits"
             format="outlined"
-            value="portraits"
+            value="portrait"
           />
 
           <Button
@@ -57,7 +60,7 @@ export default function ImageGallery() {
             onClick={handleClick}
             label="Beauty"
             format="outlined"
-            value="Beauty"
+            value="beauty"
           />
         </div>
         <Masonry columnsCount={3} gutter={4}>
