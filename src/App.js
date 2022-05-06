@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { trackPromise } from 'react-promise-tracker';
 import { getPost } from './redux/posts/posts';
 import NotFound from './pages/404/NotFound';
 import Navbar from './components/Navbar/Navbar';
@@ -16,7 +17,9 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPost());
+    trackPromise(
+      dispatch(getPost()),
+    );
   }, []);
   return (
     <div>

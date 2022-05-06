@@ -1,7 +1,7 @@
 import React from 'react';
 import { usePromiseTracker } from 'react-promise-tracker';
 
-export default function promisetracker() {
+export default function Promisetracker() {
   const { promiseInProgress } = usePromiseTracker();
   return (
     <div>
