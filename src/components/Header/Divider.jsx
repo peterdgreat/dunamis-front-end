@@ -15,7 +15,7 @@ export default function Divider({
   opacity,
   transform,
 }) {
-  const color = primary ? colors.primary : colors.secondary;
+  const color = primary ? colors.primary : colors.dark;
 
   return (
     <div
