@@ -1,10 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 // import ImageGAllery from '../../components/ImageGallery/ImageGallery';
 import { Container, Description } from './Home.style';
 import Header from '../../components/Header/Header';
 import { colors } from '../../styles/global.style';
+import Button from '../../components/Button/Button';
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <Container>
       {/* <ImageGAllery /> */}
@@ -20,7 +23,12 @@ export default function Home() {
         to capture the uniqueness of your day. As a result we tailor our packages
         to meet your specific requirements.
       </Description>
-
+      <Button
+        format="outlined"
+        label="Portfolio"
+        primary={false}
+        onClick={() => { navigate('/portfolio'); }}
+      />
     </Container>
   );
 }
