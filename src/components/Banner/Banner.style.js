@@ -14,7 +14,7 @@ const BannerContainer = styled.header`
     rgba(50, 39, 59, 0.7)
     ), url(${(props) => props.bg});
   background-size: cover;
-  height: 90vh;
+  height: 100vh;
   background-repeat: no-repeat;
   object-fit:contain;
   background-position: top;
