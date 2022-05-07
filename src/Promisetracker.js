@@ -1,5 +1,5 @@
 import React from 'react';
-import { Circles } from 'react-loader-spinner';
+import { TailSpin } from 'react-loader-spinner';
 import { usePromiseTracker } from 'react-promise-tracker';
 import { colors } from './styles/colors';
 
@@ -18,7 +18,7 @@ export default function Promisetracker() {
         alignItems: 'center',
       }}
     >
-      <Circles color={colors.secondary} ariaLabel="loading-indicator" />
+      <TailSpin color={colors.secondary} ariaLabel="loading-indicator" />
     </div>
     )}
     </div>
