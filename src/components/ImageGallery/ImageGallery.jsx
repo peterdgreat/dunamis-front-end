@@ -4,6 +4,7 @@ import ModalImage from 'react-modal-image';
 import Masonry from 'react-responsive-masonry';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import { deletePost } from '../../redux/posts/posts';
+import Promisetracker from '../../Promisetracker';
 import Button from '../Button/Button';
 
 export default function ImageGallery() {
@@ -64,6 +65,9 @@ export default function ImageGallery() {
           />
         </div>
         <Masonry columnsCount={3} gutter={4}>
+          <Promisetracker />
+          ;
+
           {
         filtered.map((post) => {
           const [, value] = post;
@@ -90,6 +94,7 @@ export default function ImageGallery() {
       }
         </Masonry>
       </div>
+
     </div>
 
   );
