@@ -18,9 +18,6 @@ export default function Banner(props) {
   return (
     <Container>
       <BannerContainer bg={post?.image}>
-        {/* <BannerImage
-          src={post?.image}
-        /> */}
         <BannerBody>
           <Heading>
             { title }
