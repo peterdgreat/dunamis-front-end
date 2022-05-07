@@ -16,11 +16,6 @@ export default function NavBar() {
     <nav className=" navbg fixed-top navbar navbar-expand-lg justify-content-between  text-white d-flex container-fluid">
 
       <NavItems
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
         className="navbar-brand  nav-text"
         onClick={() => { navigate('/'); }}
       >
