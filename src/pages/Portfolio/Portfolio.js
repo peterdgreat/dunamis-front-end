@@ -1,11 +1,15 @@
 import React from 'react';
 import ImageGAllery from '../../components/ImageGallery/ImageGallery';
+import Banner from '../../components/Banner/Banner';
 import Container from './Portfolio.style';
 
 export default function Portfolio() {
   return (
-    <Container>
-      <ImageGAllery />
-    </Container>
+    <>
+      <Banner />
+      <Container>
+        <ImageGAllery />
+      </Container>
+    </>
   );
 }
