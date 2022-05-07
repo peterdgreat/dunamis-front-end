@@ -26,6 +26,10 @@ const BannerBody = styled.div`
   padding-right: 8%;
   width: 80%;
   color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
 `;
 const Container = styled.div`
   height: 100%;

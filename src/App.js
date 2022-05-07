@@ -8,9 +8,9 @@ import NotFound from './pages/404/NotFound';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import Portfolio from './pages/Portfolio/Portfolio';
-import Banner from './components/Banner/Banner';
 import Admin from './pages/Admin/Admin';
 import AdminLogin from './pages/Login/AdminLogin';
+import About from './pages/About/About';
 import './App.css';
 
 function App() {
@@ -25,13 +25,13 @@ function App() {
     <div>
       <Router>
         <Navbar />
-        <Banner />
         <div className="App">
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/PDG_admin/dashboard" element={<Admin />} />
             <Route exact path="/PDG_admin/login" element={<AdminLogin />} />
             <Route exact path="/portfolio" element={<Portfolio />} />
+            <Route exact path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
 
