@@ -1,5 +1,5 @@
 import React from 'react';
-import { TailSpin } from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 import { usePromiseTracker } from 'react-promise-tracker';
 import { colors } from './styles/colors';
 
@@ -18,7 +18,8 @@ export default function Promisetracker() {
         alignItems: 'center',
       }}
     >
-      <TailSpin color={colors.secondary} ariaLabel="loading-indicator" />
+      <h1 style={{ color: colors.secondary }}>Loading</h1>
+      <ThreeDots color={colors.secondary} ariaLabel="loading-indicator" />
     </div>
     )}
     </div>
