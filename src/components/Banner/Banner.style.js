@@ -21,7 +21,7 @@ const BannerContainer = styled.header`
 `;
 
 const BannerBody = styled.div`
-  padding-top: 250px;
+  padding-top: 200px;
   padding-left: 8%;
   padding-right: 8%;
   width: 80%;
