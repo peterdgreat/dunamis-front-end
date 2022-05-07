@@ -65,8 +65,6 @@ export default function ImageGallery() {
           />
         </div>
         <Masonry columnsCount={3} gutter={4}>
-          <Promisetracker />
-          ;
 
           {
         filtered.map((post) => {
@@ -93,6 +91,8 @@ export default function ImageGallery() {
         })
       }
         </Masonry>
+        <Promisetracker />
+        ;
       </div>
 
     </div>
