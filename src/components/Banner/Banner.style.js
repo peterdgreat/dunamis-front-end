@@ -14,14 +14,14 @@ const BannerContainer = styled.header`
     rgba(50, 39, 59, 0.7)
     ), url(${(props) => props.bg});
   background-size: cover;
-  height: 100vh;
+  height: 90vh;
   background-repeat: no-repeat;
   object-fit:contain;
   background-position: top;
 `;
 
 const BannerBody = styled.div`
-  padding-top: 250px;
+  padding-top: 200px;
   padding-left: 8%;
   padding-right: 8%;
   width: 80%;

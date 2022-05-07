@@ -1,8 +1,9 @@
 import React from 'react';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Button from '../Button/Button';
+import NavItems from './Navbar.style';
 import hamburger from './assets/hamburger.png';
+import './Navbar.css';
 
 export default function NavBar() {
   const navigate = useNavigate();
@@ -12,10 +13,20 @@ export default function NavBar() {
     window.location.href = '/';
   };
   return (
-    <nav className="navbar fixed-top navbar-expand-lg justify-content-between  text-white d-flex container-fluid">
-      <NavLink className="navbar-brand  text-white" to="/">
+    <nav className=" navbg fixed-top navbar navbar-expand-lg justify-content-between  text-white d-flex container-fluid">
+
+      <NavItems
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-brand  nav-text"
+        onClick={() => { navigate('/'); }}
+      >
         DUNAMIS PHOTOGRAPHY
-      </NavLink>
+      </NavItems>
+
       <button
         className="navbar-toggler"
         type="button"
@@ -28,36 +39,63 @@ export default function NavBar() {
         <img src={hamburger} alt="hamburger" />
       </button>
       <div
-        className="collapse justify-content-end navbar-collapse"
+        className="collapse justify-content-end navbar-collapse pt-2"
         id="navbarSupportedContent"
       >
-        <ul className="d-flex ">
-          <li className="nav-item bdr d-flex align-items-center px-3">
-            <Button
-              format="outlined"
-              label="Portfolio"
-              primary={false}
+        <ul className="d-flex flex-column flex-md-row  ">
+          <li className="nav-item pt-5 pt-md-0 bdr d-flex align-items-center px-3">
+            <NavItems
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
               onClick={() => { navigate('/portfolio'); }}
-            />
+            >
+              Portfolio
+            </NavItems>
+          </li>
+          <li className="nav-item pt-5 pt-md-0  bdr d-flex align-items-center px-3">
+            <NavItems
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              onClick={() => { navigate('/about'); }}
+            >
+              About
+            </NavItems>
           </li>
           {admin?.admin?.id && (
             <>
-              <li className="nav-item bdr d-flex align-items-center px-3">
-                <NavLink
-                  className="nav-Link btn btn-dark  text-white"
-                  to="/PDG_admin/dashboard"
+              <li className="nav-item bdr d-flex align-items-center px-3  pt-5 pt-md-0 ">
+
+                <NavItems
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  className="nav-Link"
+                  onClick={() => { navigate('/PDG_admin/dashboard'); }}
                 >
                   Dashboard
-                </NavLink>
+                </NavItems>
               </li>
-              <li className="nav-item bdr d-flex align-items-center px-3">
-                <button
+              <li className="nav-item bdr d-flex align-items-center px-3  pt-5 pt-md-0 ">
+                <NavItems
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
                   type="button"
-                  className=" btn nav-Link btn-danger"
+                  className=" btn"
                   onClick={handleLogout}
                 >
                   Logout
-                </button>
+                </NavItems>
               </li>
             </>
           )}
