@@ -1,32 +1,42 @@
-import { React, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { getRockets } from './redux/Rockets/rockets';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import About from './components/About';
+import { trackPromise } from 'react-promise-tracker';
+import { getPost } from './redux/posts/posts';
+import NotFound from './pages/404/NotFound';
+import Navbar from './components/Navbar/Navbar';
+import Home from './pages/Home/Home';
+import Portfolio from './pages/Portfolio/Portfolio';
+import Admin from './pages/Admin/Admin';
+import AdminLogin from './pages/Login/AdminLogin';
+import About from './pages/About/About';
 import './App.css';
 
 function App() {
+  const dispatch = useDispatch();
 
-  const dispatchRocket = useDispatch();
   useEffect(() => {
-    dispatchRocket(getRockets());
+    trackPromise(
+      dispatch(getPost()),
+    );
   }, []);
-
   return (
     <div>
-        <Router>
-   <Navbar />
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-           <Route path={'/about'} element={<About />} />
-        </Routes>
-  
-      </div>
-    </Router>
+      <Router>
+        <Navbar />
+        <div className="App">
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/PDG_admin/dashboard" element={<Admin />} />
+            <Route exact path="/PDG_admin/login" element={<AdminLogin />} />
+            <Route exact path="/portfolio" element={<Portfolio />} />
+            <Route exact path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+
+        </div>
+      </Router>
     </div>
   );
 }

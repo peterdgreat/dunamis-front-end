@@ -1,0 +1,14 @@
+.navbg {
+  background: #32273b;
+  box-shadow: -1px 1px 20px rgb(0 0 0 / 20%);
+}
+
+.nav-text {
+  color: #fff;
+}
+
+.navbar-toggler:focus {
+  text-decoration: none;
+  outline: 0;
+  box-shadow: none;
+}
