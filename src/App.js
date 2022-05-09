@@ -11,6 +11,8 @@ import Portfolio from './pages/Portfolio/Portfolio';
 import Admin from './pages/Admin/Admin';
 import AdminLogin from './pages/Login/AdminLogin';
 import About from './pages/About/About';
+import Footer from './components/Footer/Footer';
+
 import './App.css';
 
 function App() {
@@ -36,6 +38,7 @@ function App() {
           </Routes>
 
         </div>
+        <Footer />
       </Router>
     </div>
   );
