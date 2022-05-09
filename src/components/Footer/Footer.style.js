@@ -66,8 +66,7 @@ background: #32273b;
 }
 `;
 const LastWrapper = styled.div`
-padding: 18.5px 8% 2.35px 8%;
-margin-top: 64px;
+padding: 28.5px 8% 2.35px 8%;
 `;
 const Reserved = styled.p`
 font-family: 'DM Sans';

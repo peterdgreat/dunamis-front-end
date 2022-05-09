@@ -26,9 +26,9 @@ export default function Footer() {
             <div className="">
               <div className="d-flex align-items-start d-none opacity-0 d-md-block">
                 <div>
-                  <Heading>Spectrangle</Heading>
+                  <Heading>Dunamis Photography</Heading>
                   <Li>
-                    © 2021 TalentQL.
+                    © 2022
                   </Li>
                 </div>
 
