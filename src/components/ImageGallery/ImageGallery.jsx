@@ -3,8 +3,10 @@ import { useSelector } from 'react-redux';
 import ModalImage from 'react-modal-image';
 import Masonry from 'react-responsive-masonry';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
+import LazyLoad from 'react-lazy-load';
 import { deletePost } from '../../redux/posts/posts';
 import Promisetracker from '../../Promisetracker';
+
 import Button from '../Button/Button';
 
 export default function ImageGallery() {
@@ -71,11 +73,14 @@ export default function ImageGallery() {
           const [, value] = post;
           return (
             <AnimationOnScroll initiallyVisible animateIn="animate__bounceIn" key={value?.id}>
-              <ModalImage
-                small={value?.image}
-                large={value?.image}
-                alt={value?.category}
-              />
+              <div className="filler" />
+              <LazyLoad offsetVertical={300}>
+                <ModalImage
+                  small={value?.image}
+                  large={value?.image}
+                  alt={value?.category}
+                />
+              </LazyLoad>
               {admin?.admin?.id && (
               <button
                 type="button"
