@@ -8,11 +8,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import App from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-      {/* <Promisetracker /> */}
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <App />
+    {/* <Promisetracker /> */}
+  </Provider>,
   document.getElementById('root'),
 );
