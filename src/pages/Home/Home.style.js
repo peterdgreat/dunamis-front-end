@@ -8,6 +8,7 @@ height: 100%;
 padding-top: 50px;
 padding-left: 8%;
 padding-right: 8%;
+margin-bottom: 64px;
 `;
 const Description = styled.p`
 ${getTypographyFontStyle({ variant: 'body1', weight: 400 })}
